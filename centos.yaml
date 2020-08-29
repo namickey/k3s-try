@@ -1,0 +1,23 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: python-deployment
+spec:
+  selector:
+    matchLabels:
+      app: py
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: py
+    spec:
+      containers:
+      - name: py
+        image: centos:latest
+        command:
+          - sh
+          - "-c"
+          - |
+              echo "print('hello world')" > a.py
+              /sbin/init
