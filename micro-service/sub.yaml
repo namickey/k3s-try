@@ -1,0 +1,12 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: sub
+  labels:
+    app: sub-mqtt
+spec:
+  containers:
+  - name: sub-con
+    image: namickey/sub-mqtt:1.0
+    imagePullPolicy: Never
+    command: ["python", "-u", "sub.py"]
