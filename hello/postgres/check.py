@@ -3,16 +3,24 @@ from subprocess import PIPE
 
 from multiprocessing import Pool
 import multiprocessing as multi
+import datetime
 
 def process(i):
     subprocess.run(['curl', 'http://192.168.1.14:5000/', '-s', '-o', '/dev/null'], stdout=PIPE, text=True)
     #subprocess.run(['curl', 'http://192.168.1.14:8080/', '-s', '-o', '/dev/null'], stdout=PIPE, text=True)
 
 p = Pool(multi.cpu_count()*4)
-p.map(process, list(range(30)))
+before = datetime.datetime.now()
+print(before)
+p.map(process, list(range(6000)))
 p.close()
 
 proc = subprocess.run(['sudo', 'k3s', 'kubectl', 'get', 'pod', '-o', 'wide'], stdout=PIPE, text=True)
+
+after = datetime.datetime.now()
+print(after)
+print(after - before)
+
 data = proc.stdout
 for x in data.split('\n'):
     if x.startswith('flask'):

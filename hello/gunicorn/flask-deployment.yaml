@@ -1,0 +1,20 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: flask-deployment
+spec:
+  replicas: 4
+  selector:
+    matchLabels:
+      app: flask-pod
+  template:
+    metadata:
+      labels:
+        app: flask-pod
+    spec:
+      containers:
+      - name: flask-container
+        image: namickey/gunicorn-postgres-podmix:latest
+        command: ["gunicorn", "-w", "2", "-b", "0.0.0.0:5000", "--access-logfile", "-", "app:app"]
+        ports:
+        - containerPort: 5000

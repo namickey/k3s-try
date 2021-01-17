@@ -32,7 +32,7 @@ sudo k3s kubectl create -f flaskpod.yaml
 sudo k3s  kubectl expose deployment fd --port=5000 --target-port=5000 --type LoadBalancer
 
 https://dev.classmethod.jp/articles/docker-multi-architecture-image-build/
-docker run --rm --privileged multiarch/qemu-user-static --reset -p yes
+sudo docker run --rm --privileged multiarch/qemu-user-static --reset -p yes
 sudo docker buildx ls
 sudo docker buildx create --name mix
 sudo docker buildx use mix
@@ -55,6 +55,16 @@ sudo k3s kubectl apply -f flaskpod.yaml
 
 https://qiita.com/sky0621/items/beb12145f1b674fe7904
 https://qiita.com/Tsu_hao_Zhang/items/7d4f5d62bed584766881
+
+## postgres
+```
+sudo docker run --rm --privileged multiarch/qemu-user-static --reset -p yes
+sudo docker buildx ls
+sudo docker buildx create --name mix
+sudo docker buildx use mix
+sudo docker buildx inspect --bootstrap
+sudo docker buildx build --platform linux/amd64,linux/arm/v7 -t namickey/flask-postgres-podmix:latest --push .
+```
 
 ## hello
 ```
