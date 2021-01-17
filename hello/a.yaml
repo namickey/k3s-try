@@ -1,0 +1,22 @@
+#sudo k3s  kubectl expose deployment ad --port=8080 --target-port=80 --type LoadBalancer
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: ad
+  labels:
+    app: a
+spec:
+  replicas: 8
+  selector:
+    matchLabels:
+      app: ap
+  template:
+    metadata:
+      labels:
+        app: ap
+    spec:
+      containers:
+      - name: a
+        image: nginx
+        ports:
+        - containerPort: 80
