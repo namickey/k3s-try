@@ -10,9 +10,9 @@ http://localhost:5000/auth/<code>
 
 
 
-kubectl create deployment heinz-dep --port=5000 --image=namickey/heinz:latest
-kubectl scale --replicas=2 deployment heinz-dep
-kubectl expose deployment heinz-dep --type=LoadBalancer
+kubectl create deployment heinzmix-dep --port=5000 --image=namickey/heinzmix:latest
+kubectl scale --replicas=2 deployment heinzmix-dep
+kubectl expose deployment heinzmix-dep --type=LoadBalancer
 
 
 参考
