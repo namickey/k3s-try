@@ -3,7 +3,23 @@ docker build -t namickey/heinz:latest .
 docker push namickey/heinz:latest
 docker run -it -p 5000:5000 namickey/heinz:latest
 
+docker buildx build --platform linux/amd64,linux/arm/v7 -t namickey/heinzmix:latest --push .
+
 http://localhost:5000/hash
 http://localhost:5000/auth/<code>
 
 
+
+kubectl create deployment heinz-dep --port=5000 --image=namickey/heinz:latest
+kubectl scale --replicas=2 deployment heinz-dep
+kubectl expose deployment heinz-dep --type=LoadBalancer
+
+
+参考
+kubectl run heinz --port=5000 --image=namickey/heinz:latest
+kubectl expose deployment heinz-dep --port=5000 --target-port=80 --type=LoadBalancer
+kubectl expose deployment heinz-dep --port=81 --target-port=5000 --type=LoadBalancer
+
+ターゲットdeploymentにフォワーディングする際のFrom/ToのPortを指定
+--port=80
+--target-port=8080
