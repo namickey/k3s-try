@@ -1,0 +1,30 @@
+
+
+構築
+sudo kubectl create deployment gitbucket-dep --port=8080 --image=gitbucket/gitbucket
+sudo kubectl expose deployment gitbucket-dep --type=LoadBalancer --port=8081 --target-port=8080
+
+sudo kubectl create deployment jenkins-dep --port=8080 --image=jenkins/jenkins:lts-jdk11
+sudo kubectl expose deployment jenkins-dep --type=LoadBalancer
+
+確認
+sudo kubectl get all -o wide
+sudo kubectl logs pod/gitbucket-dep-xxxxxxxxxx-xxxxx
+sudo kubectl logs pod/jenkins-dep-xxxxxxxxxx-xxxxx　※ログを確認し、ログからアクセストークンを取得する
+
+設定に使用するURL
+http://jenkins-dep.default.svc.cluster.local:8080/ghprbhook
+http://gitbucket-dep.default.svc.cluster.local:8080/root/cafe
+http://gitbucket-dep.default.svc.cluster.local:8080/git/root/cafe.git
+
+pod停止
+sudo kubectl scale --replicas=0 deployment gitbucket-dep
+sudo kubectl scale --replicas=0 deployment jenkins-dep
+
+pod起動
+sudo kubectl scale --replicas=1 deployment gitbucket-dep
+sudo kubectl scale --replicas=1 deployment jenkins-dep
+
+k3s停止
+sudo systemctl stop k3s
+sudo systemctl start k3s
