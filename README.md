@@ -6,6 +6,10 @@ memo
 ```
 curl -sfL https://get.k3s.io | sh -s - --write-kubeconfig-mode 644
 ```
+```
+# install kubectl for ubuntu
+snap install kubectl --classic
+```
 
 ## kubectl
 ```
