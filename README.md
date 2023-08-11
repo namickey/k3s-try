@@ -11,6 +11,17 @@ curl -sfL https://get.k3s.io | sh -s - --write-kubeconfig-mode 644
 snap install kubectl --classic
 ```
 
+## argocd
+```
+https://techstep.hatenablog.com/entry/2021/12/28/130109
+
+argocd admin dashboard
+
+ssh -L 8081:localhost:8080 user@xx.xx.xx.xx -N
+
+http://localhost:8081
+```
+
 ## kubectl
 ```
 sudo k3s kubectl get nodes
