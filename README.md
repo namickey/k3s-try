@@ -7,6 +7,9 @@ memo
 curl -sfL https://get.k3s.io | sh -s - --write-kubeconfig-mode 644
  or
 curl -sfL https://get.k3s.io | sh -s - server --write-kubeconfig-mode 644 --flannel-backend=ipsec
+
+cp /etc/rancher/k3s/k3s.yaml ~/.kube/config
+kubectl get nodes
 ```
 ```
 # install kubectl for ubuntu
