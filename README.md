@@ -41,7 +41,17 @@ https://techstep.hatenablog.com/entry/2021/12/28/130109
 # only core
 kubectl create namespace argocd
 kubectl apply -n argocd -f https://raw.githubusercontent.com/argoproj/argo-cd/stable/manifests/core-install.yaml
+```
 
+## install argocd cli
+```
+curl -sSL -o argocd-linux-amd64 https://github.com/argoproj/argo-cd/releases/latest/download/argocd-linux-amd64
+sudo install -m 555 argocd-linux-amd64 /usr/local/bin/argocd
+rm argocd-linux-amd64
+```
+
+## start argocd
+```
 argocd login --core
 
 argocd version
@@ -58,7 +68,7 @@ ssh -L 8081:localhost:8080 user@xx.xx.xx.xx -N
 http://localhost:8081
 ```
 
-## kubectl
+## try kubectl
 ```
 sudo k3s kubectl get nodes
 sudo k3s kubectl get all -o wide
