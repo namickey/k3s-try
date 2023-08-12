@@ -69,6 +69,13 @@ ssh -L 8081:localhost:8080 user@xx.xx.xx.xx -N
 http://localhost:8081
 ```
 
+## CI
+https://matsuand.github.io/docs.docker.jp.onthefly/language/java/configure-ci-cd/  
+https://medium.berkayozcan.com/automate-docker-image-builds-for-spring-boot-apps-with-github-actions-3017c684ce99  
+https://medium.com/@mamthamalar/ci-with-github-actions-publish-docker-images-de8f1f610fac  
+https://www.springcloud.io/post/2022-08/springcloud-github-actions/#gsc.tab=0  
+https://spring.pleiades.io/guides/topicals/spring-boot-docker/  
+
 ## try kubectl
 ```
 sudo k3s kubectl get nodes
