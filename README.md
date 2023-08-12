@@ -2,15 +2,7 @@
 
 memo
 
-## install
-```
-curl -sfL https://get.k3s.io | sh -s - --write-kubeconfig-mode 644
- or
-curl -sfL https://get.k3s.io | sh -s - server --write-kubeconfig-mode 644 --flannel-backend=ipsec
-
-cp /etc/rancher/k3s/k3s.yaml ~/.kube/config
-kubectl get nodes
-```
+## install kubectl
 ```
 # install kubectl for ubuntu
 snap install kubectl --classic
@@ -32,7 +24,17 @@ sudo install -o root -g root -m 0755 kubectl /usr/local/bin/kubectl
 kubectl version --client
 ```
 
-## argocd
+## install k3s
+```
+curl -sfL https://get.k3s.io | sh -s - --write-kubeconfig-mode 644
+ or
+curl -sfL https://get.k3s.io | sh -s - server --write-kubeconfig-mode 644 --flannel-backend=ipsec
+
+cp /etc/rancher/k3s/k3s.yaml ~/.kube/config
+kubectl get nodes
+```
+
+## install argocd
 ```
 https://techstep.hatenablog.com/entry/2021/12/28/130109
 
