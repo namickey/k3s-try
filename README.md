@@ -8,20 +8,20 @@ memo
 snap install kubectl --classic
 
 
-# https://qiita.com/hidemaru/items/89c783fec8b402e7bfb5
-curl -LO https://storage.googleapis.com/kubernetes-release/release/$(curl -s https://storage.googleapis.com/kubernetes-release/release/stable.txt)/bin/linux/amd64/kubectl
-
-chmod +x ./kubectl
-Move the binary in to your PATH.
-sudo mv ./kubectl /usr/local/bin/kubectl
-
-
 # https://kubernetes.io/docs/tasks/tools/install-kubectl-linux/
 curl -LO "https://dl.k8s.io/release/$(curl -L -s https://dl.k8s.io/release/stable.txt)/bin/linux/amd64/kubectl"
 
 sudo install -o root -g root -m 0755 kubectl /usr/local/bin/kubectl
 
 kubectl version --client
+
+
+# https://qiita.com/hidemaru/items/89c783fec8b402e7bfb5
+curl -LO https://storage.googleapis.com/kubernetes-release/release/$(curl -s https://storage.googleapis.com/kubernetes-release/release/stable.txt)/bin/linux/amd64/kubectl
+
+chmod +x ./kubectl
+Move the binary in to your PATH.
+sudo mv ./kubectl /usr/local/bin/kubectl
 ```
 
 ## install k3s
@@ -37,6 +37,19 @@ kubectl get nodes
 ## install argocd
 ```
 https://techstep.hatenablog.com/entry/2021/12/28/130109
+
+# only core
+kubectl create namespace argocd
+kubectl apply -n argocd -f https://raw.githubusercontent.com/argoproj/argo-cd/stable/manifests/core-install.yaml
+
+argocd login --core
+
+argocd version
+
+kubectl config set-context --current --namespace=argocd
+k3s kubectl config set-context --current --namespace=argocd
+
+argocd version
 
 argocd admin dashboard
 
