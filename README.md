@@ -57,7 +57,8 @@ argocd login --core
 argocd version
 
 kubectl config set-context --current --namespace=argocd
-k3s kubectl config set-context --current --namespace=argocd
+cd ~/.kube
+sudo cp config /etc/rancher/k3s/k3s.yaml
 
 argocd version
 
