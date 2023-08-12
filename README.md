@@ -11,6 +11,22 @@ curl -sfL https://get.k3s.io | sh -s - server --write-kubeconfig-mode 644 --flan
 ```
 # install kubectl for ubuntu
 snap install kubectl --classic
+
+
+# https://qiita.com/hidemaru/items/89c783fec8b402e7bfb5
+curl -LO https://storage.googleapis.com/kubernetes-release/release/$(curl -s https://storage.googleapis.com/kubernetes-release/release/stable.txt)/bin/linux/amd64/kubectl
+
+chmod +x ./kubectl
+Move the binary in to your PATH.
+sudo mv ./kubectl /usr/local/bin/kubectl
+
+
+# https://kubernetes.io/docs/tasks/tools/install-kubectl-linux/
+curl -LO "https://dl.k8s.io/release/$(curl -L -s https://dl.k8s.io/release/stable.txt)/bin/linux/amd64/kubectl"
+
+sudo install -o root -g root -m 0755 kubectl /usr/local/bin/kubectl
+
+kubectl version --client
 ```
 
 ## argocd
