@@ -14,4 +14,4 @@ spec:
     spec:
       containers:
       - name: spring-container
-        image: namickey/spring-boot2-try:latest
+        image: namickey/spring-boot2-try:1.0.4
