@@ -1,0 +1,17 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: spring-deployment
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: spring-pod
+  template:
+    metadata:
+      labels:
+        app: spring-pod
+    spec:
+      containers:
+      - name: spring-container
+        image: namickey/spring-boot2-try:latest
