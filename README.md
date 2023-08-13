@@ -77,6 +77,9 @@ https://tech-lab.sios.jp/archives/29689
 docker docs: Configure CI/CD for your application  
 https://matsuand.github.io/docs.docker.jp.onthefly/language/java/configure-ci-cd/  
 
+タグが打たれたらGitHub Container Registryにイメージをpushする  
+https://songmu.jp/riji/entry/2022-01-06-github-actions-ghcr.html  
+
 https://medium.berkayozcan.com/automate-docker-image-builds-for-spring-boot-apps-with-github-actions-3017c684ce99  
 https://medium.com/@mamthamalar/ci-with-github-actions-publish-docker-images-de8f1f610fac  
 https://www.springcloud.io/post/2022-08/springcloud-github-actions/#gsc.tab=0  
