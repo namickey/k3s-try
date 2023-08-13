@@ -70,7 +70,13 @@ http://localhost:8081
 ```
 
 ## CI
+
+GitHub Actionsを利用したDockerイメージの自動ビルドを試す  
+https://tech-lab.sios.jp/archives/29689  
+
+docker docs: Configure CI/CD for your application  
 https://matsuand.github.io/docs.docker.jp.onthefly/language/java/configure-ci-cd/  
+
 https://medium.berkayozcan.com/automate-docker-image-builds-for-spring-boot-apps-with-github-actions-3017c684ce99  
 https://medium.com/@mamthamalar/ci-with-github-actions-publish-docker-images-de8f1f610fac  
 https://www.springcloud.io/post/2022-08/springcloud-github-actions/#gsc.tab=0  
